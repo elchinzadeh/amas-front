@@ -1,0 +1,23 @@
+.main-layout {
+    .vs-navbar {
+        background-color: white;
+
+        &--title {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+
+            .logo {
+                margin-right: 2rem;
+                height: 100px;
+            }
+        }
+    }
+
+    &--content {
+        min-height: calc(100vh - (100px + 3rem) - (21px + 2.4rem));
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+}

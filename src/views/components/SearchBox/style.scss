@@ -1,0 +1,22 @@
+@import "../../../assets/scss/vuexy/variables.scss";
+
+.search-box {
+    width: 100%;
+
+    .v-select {
+        width: 220px;
+        height: 100%;
+
+        .vs__dropdown-toggle {
+            height: 100%;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-right: 0;
+            background-color: #ffffff;
+
+            .feather-chevron-down {
+                stroke: $primary;
+            }
+        }
+    }
+}

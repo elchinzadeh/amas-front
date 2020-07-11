@@ -1,0 +1,36 @@
+@import "../../../assets/scss/vuexy/variables.scss";
+
+.home-page {
+    padding: 0;
+    .search-area {
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: linear-gradient(
+                45deg,
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.7)
+            ),
+            url(../../../assets/images/pages/main-background.jpg) no-repeat
+                center/cover;
+
+        .search-box {
+            margin-bottom: 2rem;
+        }
+    }
+    .reports,
+    .news,
+    .announcements {
+        padding: 2rem;
+    }
+    .updates,
+    .publications {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .vx-card {
+            flex: 1;
+        }
+    }
+}
