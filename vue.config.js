@@ -1,20 +1,18 @@
-/*=========================================================================================
-  File Name: vue.config.js
-  Description: configuration file of vue
-  ----------------------------------------------------------------------------------------
-  Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-  Author: Pixinvent
-  Author URL: http://www.themeforest.net/user/pixinvent
-==========================================================================================*/
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
     publicPath: "/",
-    transpileDependencies: ["vue-echarts", "resize-detector"],
+    transpileDependencies: [],
     configureWebpack: {
         optimization: {
             splitChunks: {
                 chunks: "all"
             }
         }
-    }
+    },
+    chainWebpack(config) {
+        config.plugins.delete('prefetch');
+        config.plugin('CompressionPlugin').use(CompressionPlugin);
+    },
+    productionSourceMap: false
 };

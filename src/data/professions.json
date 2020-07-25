@@ -1,0 +1,188 @@
+[
+    {
+        "id": 1,
+        "code": "050621",
+        "name": "Dəmiryol nəqliyyatı və təsərrüfatı mühəndisliyi",
+        "faculty_id": 1
+    },
+    {
+        "id": 2,
+        "code": "050622",
+        "name": "Yerüstü nəqlyyat vasitələrinin mühəndisliyi",
+        "faculty_id": 1
+    },
+    {
+        "id": 3,
+        "code": "050623",
+        "name": "Nəqliyyatda daşımaların və idarəetmənin təşkili mühəndisliyi",
+        "faculty_id": 1
+    },
+    {
+        "id": 4,
+        "code": "050811",
+        "name": "Nəqliyyat servisi (Avtomobil nəqliyyatı üzrə)",
+        "faculty_id": 1
+    },
+    {
+        "id": 5,
+        "code": "050658",
+        "name": "Logistika və nəqliyyat texnologiyaları mühəndisliyi",
+        "faculty_id": 1
+    },
+    {
+        "id": 6,
+        "code": "050626",
+        "name": "Elektrik mühəndisliyi",
+        "faculty_id": 2
+    },
+    {
+        "id": 7,
+        "code": "050608",
+        "name": "Elektroenergetika mühəndisliyi",
+        "faculty_id": 2
+    },
+    {
+        "id": 8,
+        "code": "050609",
+        "name": "İstilik energetikası mühəndisliyi",
+        "faculty_id": 2
+    },
+    {
+        "id": 9,
+        "code": "050610",
+        "name": "Enerji maşınqayırması mühəndisliyi",
+        "faculty_id": 2
+    },
+    {
+        "id": 10,
+        "code": "050601",
+        "name": "Materialşünaslıq mühəndisliyi",
+        "faculty_id": 3
+    },
+    {
+        "id": 11,
+        "code": "050611",
+        "name": "Metallurgiya mühəndisliyi",
+        "faculty_id": 3
+    },
+    {
+        "id": 12,
+        "code": "050649",
+        "name": "Ekologiya mühəndisliyi",
+        "faculty_id": 3
+    },
+    {
+        "id": 13,
+        "code": "050810",
+        "name": "Fövqəladə hallar və həyat fəaliyyətinin təhlükəsizliyi",
+        "faculty_id": 3
+    },
+    {
+        "id": 14,
+        "code": "050605",
+        "name": "Dağ-mədən mühəndisliyi",
+        "faculty_id": 3
+    },
+    {
+        "id": 15,
+        "code": "050612",
+        "name": "Maşın mühəndisliyi",
+        "faculty_id": 4
+    },
+    {
+        "id": 16,
+        "code": "050624",
+        "name": "Cihazqayırma mühəndisliyi",
+        "faculty_id": 4
+    },
+    {
+        "id": 17,
+        "code": "050625",
+        "name": "Texnoloji maşın və avadanlıqlar mühəndisliyi",
+        "faculty_id": 4
+    },
+    {
+        "id": 18,
+        "code": "050630",
+        "name": "Mexanika mühəndisliyi",
+        "faculty_id": 4
+    },
+    {
+        "id": 19,
+        "code": "050645",
+        "name": "Poliqrafiya mühəndisliyi",
+        "faculty_id": 4
+    },
+    {
+        "id": 20,
+        "code": "050646",
+        "name": "Təkrar emal və bərpa texnologiyaları mühəndisliyi",
+        "faculty_id": 4
+    },
+    {
+        "id": 21,
+        "code": "050628",
+        "name": "Proseslərin avtomatlaşdırılması mühəndisliyi",
+        "faculty_id": 5
+    },
+    {
+        "id": 22,
+        "code": "050631",
+        "name": "Kompyuter mühəndisliyi",
+        "faculty_id": 5
+    },
+    {
+        "id": 23,
+        "code": "050632",
+        "name": "İnformasiya texnologiyaları və sistemləri mühəndisliyi",
+        "faculty_id": 5
+    },
+    {
+        "id": 24,
+        "code": "050509",
+        "name": "Kompyuter elmləri",
+        "faculty_id": 5
+    },
+    {
+        "id": 25,
+        "code": "",
+        "name": "Sənayenin təşkili və idarə olunması",
+        "faculty_id": 6
+    },
+    {
+        "id": 26,
+        "code": "",
+        "name": "Menecment",
+        "faculty_id": 6
+    },
+    {
+        "id": 27,
+        "code": "XTB050101",
+        "name": "Hərbi kompozisiya materialları mühəndisliyi",
+        "faculty_id": 7
+    },
+    {
+        "id": 28,
+        "code": "XTB050102",
+        "name": "Hərbi rabitə vasitələri mühəndisliyi",
+        "faculty_id": 7
+    },
+    {
+        "id": 29,
+        "code": "XTB050103",
+        "name": "Optotexnika mühəndisliyi",
+        "faculty_id": 7
+    },
+    {
+        "id": 30,
+        "code": "XTB050104",
+        "name": "Pirotexniki və partladıcı vasitələr mühəndisliyi",
+        "faculty_id": 7
+    },
+    {
+        "id": 31,
+        "code": "XTB050105",
+        "name": "Silah və silah sistemləri mühəndisliyi",
+        "faculty_id": 7
+    }
+]

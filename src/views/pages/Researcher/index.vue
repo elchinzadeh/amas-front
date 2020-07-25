@@ -2,7 +2,10 @@
     <div>
         <vs-row>
             <!-- Sidebar -->
-            <vs-col vs-w="3" class="pr-4">
+            <vs-col
+                vs-w="3"
+                class="pr-4"
+            >
                 <vx-card>
                     <div class="flex flex-col">
                         <vs-button
@@ -21,13 +24,19 @@
                 </vx-card>
             </vs-col>
 
-            <vs-col vs-w="9" class="pl-4">
+            <vs-col
+                vs-w="9"
+                class="pl-4"
+            >
                 <!-- Content -->
                 <vs-row>
                     <vx-card class="mb-base">
                         <vs-row>
                             <!-- Avatar -->
-                            <vs-col vs-w="2" class="pr-4">
+                            <vs-col
+                                vs-w="2"
+                                class="pr-4"
+                            >
                                 <vs-image
                                     class="w-full"
                                     src="https://www.w3schools.com/howto/img_avatar.png"
@@ -49,7 +58,7 @@
                                         type="flat"
                                         icon-pack="feather"
                                         icon="icon-download"
-                                    ></vs-button>
+                                    />
                                 </div>
                                 <table>
                                     <tr>
@@ -57,7 +66,7 @@
                                             Kafedra
                                         </td>
                                         <td>
-                                            Süni intellekt və düşünən sistemlər
+                                            Kompüter sistemləri və şəbəkələri
                                         </td>
                                     </tr>
                                     <tr>
@@ -70,7 +79,7 @@
                                         <td class="font-semibold pr-4">
                                             Email
                                         </td>
-                                        <td>hello@elchin.xyz</td>
+                                        <td>elchin.zakizadeh@aztu.edu.az</td>
                                     </tr>
                                 </table>
                             </vs-col>
@@ -89,65 +98,65 @@
 
 <script>
 export default {
-    name: "Researcher",
+    name: 'Researcher',
     data() {
         return {
             menuItems: [
                 {
                     id: 1,
-                    key: "education",
-                    title: "Təhsil məlumatları"
+                    key: 'education',
+                    title: 'Təhsil məlumatları'
                 },
                 {
                     id: 2,
-                    key: "researchAreas",
-                    title: "Tədqiqat sahələri"
+                    key: 'researchAreas',
+                    title: 'Tədqiqat sahələri'
                 },
                 {
                     id: 3,
-                    key: "experience",
-                    title: "İş təcrübəsi"
+                    key: 'experience',
+                    title: 'İş təcrübəsi'
                 },
                 {
                     id: 4,
-                    key: "publications",
-                    title: "Nəşrlər və işləri"
+                    key: 'publications',
+                    title: 'Nəşrlər və işləri'
                 },
                 {
                     id: 5,
-                    key: "projects",
-                    title: "Layihə, Patent"
+                    key: 'projects',
+                    title: 'Layihə, Patent'
                 },
                 {
                     id: 6,
-                    key: "academicActivity",
-                    title: "Akademik fəaliyyət"
+                    key: 'academicActivity',
+                    title: 'Akademik fəaliyyət'
                 },
                 {
                     id: 7,
-                    key: "achievements",
-                    title: "Nailiyyətlər"
+                    key: 'achievements',
+                    title: 'Nailiyyətlər'
                 },
                 {
                     id: 8,
-                    key: "announcements",
-                    title: "Elanlar və sənədlər"
+                    key: 'announcements',
+                    title: 'Elanlar və sənədlər'
                 },
                 {
                     id: 9,
-                    key: "contact",
-                    title: "Əlaqə məlumatları"
+                    key: 'contact',
+                    title: 'Əlaqə məlumatları'
                 }
             ],
             activeMenuKey: null
         };
     },
     mounted() {
-        this.activeMenuKey = this.$route.name.split(".")[1];
+        this.activeMenuKey = this.$route.name.split('.')[1];
     },
     methods: {
         menuOnClick(key, id) {
-            this.$router.push({ name: "researcher." + key, params: { id } });
+            this.$router.push({ name: 'researcher.' + key, params: { id } });
             this.activeMenuKey = key;
 
             // this.$el.querySelectorAll(".vs-button").forEach(button => {

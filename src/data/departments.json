@@ -1,0 +1,126 @@
+[
+    {
+        "id": 1,
+        "name": "Avtomatika və idarəetmə"
+    },
+    {
+        "id": 2,
+        "name": "Avtomobil texnikası"
+    },
+    {
+        "id": 3,
+        "name": "Azərbaycan dili və pedaqogika"
+    },
+    {
+        "id": 4,
+        "name": "Dəmiryol nəqliyyatının istismarı"
+    },
+    {
+        "id": 5,
+        "name": "Elektroenergetika və elektrik təchizatı sistemləri"
+    },
+    {
+        "id": 6,
+        "name": "Elektrotexnika və elektrik avadanlığı"
+    },
+    {
+        "id": 7,
+        "name": "Elektronika"
+    },
+    {
+        "id": 8,
+        "name": "Fizika"
+    },
+    {
+        "id": 9,
+        "name": "İctimai fənlər"
+    },
+    {
+        "id": 10,
+        "name": "İnformasiya texnologiyaları və programlaşdırma"
+    },
+    {
+        "id": 11,
+        "name": "İqtisadi nəzəriyyə və xidmət sahələrinin iqtisadiyyatı"
+    },
+    {
+        "id": 12,
+        "name": "Hidravlika və istilik texnikası"
+    },
+    {
+        "id": 13,
+        "name": "Kimya"
+    },
+    {
+        "id": 14,
+        "name": "Kompüter sistemləri və şəbəkələri"
+    },
+    {
+        "id": 15,
+        "name": "Maşın və mexanizmlər nəzəriyyəsi"
+    },
+    {
+        "id": 16,
+        "name": "Maşınların konstruksiyaedilməsi"
+    },
+    {
+        "id": 17,
+        "name": "Maşınqayırma texnologiyası"
+    },
+    {
+        "id": 18,
+        "name": "Materiallar texnologiyası"
+    },
+    {
+        "id": 19,
+        "name": "Metallurgiya və metalşünaslıq"
+    },
+    {
+        "id": 20,
+        "name": "Metrologiya və standartlaşdırma"
+    },
+    {
+        "id": 21,
+        "name": "Mexanika"
+    },
+    {
+        "id": 22,
+        "name": "Mühəndis qrafikası"
+    },
+    {
+        "id": 23,
+        "name": "Mühəndis riyaziyyatı"
+    },
+    {
+        "id": 24,
+        "name": "Nəqliyyat logistikası və hərəkətin təhlükəsizliyi"
+    },
+    {
+        "id": 25,
+        "name": "Radiotexnika"
+    },
+    {
+        "id": 26,
+        "name": "Sənaye ekologiyası və həyat fəaliyyətinin təhlükəsizliyi"
+    },
+    {
+        "id": 27,
+        "name": "Sənaye iqtisadiyyatı və menecment"
+    },
+    {
+        "id": 28,
+        "name": "Telekommunikasiya və informasiya təhlükəsizliyi"
+    },
+    {
+        "id": 29,
+        "name": "Texnoloji komplekslər və xüsusi texnika"
+    },
+    {
+        "id": 30,
+        "name": "Xarici dillər"
+    },
+    {
+        "id": 31,
+        "name": "Xüsusi texnologiyalar və avadanlıqlar"
+    }
+]

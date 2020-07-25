@@ -4,7 +4,10 @@
     >
         <div class="vx-col sm:w-1/2 md:w-1/2 lg:w-3/4 xl:w-3/5 sm:m-0 m-4">
             <vx-card>
-                <div slot="no-body" class="full-page-bg-color">
+                <div
+                    slot="no-body"
+                    class="full-page-bg-color"
+                >
                     <div class="vx-row no-gutter">
                         <div
                             class="vx-col hidden sm:hidden md:hidden lg:block lg:w-1/2 mx-auto self-center"
@@ -13,14 +16,16 @@
                                 src="@/assets/images/pages/register.jpg"
                                 alt="register"
                                 class="mx-auto"
-                            />
+                            >
                         </div>
                         <div
                             class="vx-col sm:w-full md:w-full lg:w-1/2 mx-auto self-center  d-theme-dark-bg"
                         >
                             <div class="px-8 pt-8 register-tabs-container">
                                 <div class="vx-card__title mb-4">
-                                    <h4 class="mb-4">Qeydiyyatdan keç</h4>
+                                    <h4 class="mb-4">
+                                        Qeydiyyatdan keç
+                                    </h4>
                                     <p>
                                         Yalnız AzTU əməkdaşları qeydiyyatdan
                                         keçə bilər
@@ -29,38 +34,38 @@
                                 <div>
                                     <div class="clearfix">
                                         <vs-input
+                                            v-model="displayName"
                                             label-placeholder="Ad, Soyad"
                                             name="displayName"
                                             placeholder="Ad, Soyad"
-                                            v-model="displayName"
                                             class="w-full"
                                         />
 
                                         <vs-input
+                                            v-model="email"
                                             name="email"
                                             type="email"
                                             label-placeholder="E-poçt"
                                             placeholder="E-poçt"
-                                            v-model="email"
                                             class="w-full mt-6"
                                         />
 
                                         <vs-input
                                             ref="password"
+                                            v-model="password"
                                             type="password"
                                             name="password"
                                             label-placeholder="Şifrə"
                                             placeholder="Şifrə"
-                                            v-model="password"
                                             class="w-full mt-6"
                                         />
 
                                         <vs-input
+                                            v-model="confirm_password"
                                             type="password"
                                             name="confirm_password"
                                             label-placeholder="Şifrənin təkrarı"
                                             placeholder="Şifrənin təkrarı"
-                                            v-model="confirm_password"
                                             class="w-full mt-6"
                                         />
 
@@ -76,13 +81,14 @@
                                             :to="{ name: 'login' }"
                                             class="mt-6"
                                         >
-                                            Login
+                                            Daxil ol
                                         </vs-button>
                                         <vs-button
                                             class="float-right mt-6"
+                                            :to="{ name: 'home' }"
                                             @click="register"
                                         >
-                                            Register
+                                            Qeydiyyatdan keç
                                         </vs-button>
                                     </div>
                                 </div>
@@ -97,13 +103,13 @@
 
 <script>
 export default {
-    name: "Registration",
+    name: 'Registration',
     data() {
         return {
-            displayName: "",
-            email: "",
-            password: "",
-            confirm_password: ""
+            displayName: '',
+            email: '',
+            password: '',
+            confirm_password: ''
             // isTermsConditionAccepted: true
         };
     },

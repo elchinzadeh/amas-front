@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "Akademik / AMEA üzvü"
+    },
+    {
+        "id": 2,
+        "name": "AMEA müxbir üzvü"
+    },
+    {
+        "id": 3,
+        "name": "Professor"
+    },
+    {
+        "id": 4,
+        "name": "Dosent"
+    },
+    {
+        "id": 5,
+        "name": "Aparıcı elmi işçi"
+    },
+    {
+        "id": 6,
+        "name": "Baş elmi işçi"
+    },
+    {
+        "id": 7,
+        "name": "Kiçik elmi işçi"
+    },
+    {
+        "id": 8,
+        "name": "Assistent"
+    }
+]

@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Nəqliyyat və logistika"
+    },
+    {
+        "id": 2,
+        "name": "Energetika, elektrotexnika və avtomatika"
+    },
+    {
+        "id": 3,
+        "name": "Metallurgiya və materialşünaslıq"
+    },
+    {
+        "id": 4,
+        "name": "Maşınqayırma və robototexnika"
+    },
+    {
+        "id": 5,
+        "name": "İnformasiya və telekommunikasiya texnologiyaları"
+    },
+    {
+        "id": 6,
+        "name": "İqtisadiyyat və idarəetmə"
+    },
+    {
+        "id": 7,
+        "name": "Xüsusi texnika və texnologiya"
+    }
+]
