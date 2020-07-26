@@ -30,7 +30,7 @@
                                     <vs-col vs-w="3">
                                         <vs-image
                                             class="w-full"
-                                            src="https://www.thesun.co.uk/wp-content/uploads/2019/03/NIP000172465791-e1552353155168.jpg"
+                                            :src="avatar"
                                         />
                                     </vs-col>
                                     <vs-col
@@ -104,7 +104,13 @@
 </template>
 
 <script>
+import avatar from '@/assets/images/portrait/small/avatar-s-26.jpg';
 export default {
-    name: "News"
-}
-</script>
+    name: 'News',
+    data() {
+        return {
+            avatar
+        };
+    }
+};
+</script>'News';

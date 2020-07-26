@@ -19,9 +19,9 @@
 import SearchBox from '@/views/components/SearchBox';
 
 export default {
-    name: "Search",
+    name: 'Search',
     components: {
-        SearchBox,
+        SearchBox
     }
-}
+};
 </script>
