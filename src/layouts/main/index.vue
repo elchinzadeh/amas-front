@@ -62,14 +62,18 @@
                     </div>
 
                     <vs-dropdown-menu>
-                        <vs-dropdown-item class="whitespace-no-wrap">
-                            Profilə bax
+                        <vs-dropdown-item
+                            class="whitespace-no-wrap"
+                            @click="goAccount"
+                        >
+                            Şəxsi kabinetə keç
                         </vs-dropdown-item>
                         <vs-dropdown-item
                             divider
                             class="whitespace-no-wrap"
+                            @click="logout"
                         >
-                            Hesabdan çıxış et
+                            Çıxış
                         </vs-dropdown-item>
                     </vs-dropdown-menu>
                 </vs-dropdown>
@@ -94,6 +98,15 @@ export default {
     computed: {
         loggedUser() {
             return this.$cookies.get('user') || null;
+        }
+    },
+    methods: {
+        logout() {
+            this.$cookies.remove('user');
+            this.$router.go();
+        },
+        goAccount() {
+            this.$router.push({ name: 'researcher.education' });
         }
     }
 };

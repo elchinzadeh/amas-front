@@ -1,12 +1,12 @@
 const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
-    publicPath: "/",
+    publicPath: '/',
     transpileDependencies: [],
     configureWebpack: {
         optimization: {
             splitChunks: {
-                chunks: "all"
+                chunks: 'all'
             }
         }
     },

@@ -1,18 +1,26 @@
 <template>
     <div>
-        <h3 class="mb-4">Filter</h3>
-        <vs-collapse type="margin" class="p-0">
+        <h3 class="mb-4">
+            Filtr
+        </h3>
+        <vs-collapse
+            type="margin"
+            class="p-0"
+        >
             <!-- Category -->
-            <vs-collapse-item class="mt-0" open>
+            <vs-collapse-item
+                class="mt-0"
+                open
+            >
                 <div slot="header">
                     Kateqoriya
                 </div>
                 <div>
                     <vs-row class="mb-4">
                         <vs-input
+                            v-model="searchInputValue"
                             size="small"
                             placeholder="Axtar"
-                            v-model="searchInputValue"
                             class="w-full"
                         />
                     </vs-row>
@@ -48,9 +56,9 @@
                 <div>
                     <vs-row class="mb-4">
                         <vs-input
+                            v-model="searchInputValue"
                             size="small"
                             placeholder="Axtar"
-                            v-model="searchInputValue"
                             class="w-full"
                         />
                     </vs-row>
@@ -137,9 +145,9 @@
                 <div>
                     <vs-row class="mb-4">
                         <vs-input
+                            v-model="searchInputValue"
                             size="small"
                             placeholder="Axtar"
-                            v-model="searchInputValue"
                             class="w-full"
                         />
                     </vs-row>
@@ -179,8 +187,8 @@
                             {{ selectedDateRange[1] }}
                         </h6>
                         <vs-slider
-                            step="1"
                             v-model="selectedDateRange"
+                            step="1"
                             :min="yearRange[0]"
                             :max="yearRange[1]"
                             class="w-full"
@@ -201,8 +209,8 @@
                             {{ selectedDateRange[1] }}
                         </h6>
                         <vs-slider
-                            step="1"
                             v-model="selectedDateRange"
+                            step="1"
                             :min="yearRange[0]"
                             :max="yearRange[1]"
                             class="w-full"
@@ -219,9 +227,9 @@
                 <div>
                     <vs-row class="mb-4">
                         <vs-input
+                            v-model="searchInputValue"
                             size="small"
                             placeholder="Axtar"
-                            v-model="searchInputValue"
                             class="w-full"
                         />
                     </vs-row>
@@ -233,7 +241,7 @@
                                 </vs-checkbox>
                             </li>
                             <li
-                                v-for="option in checkboxOptions"
+                                v-for="option in researchers"
                                 :key="option.id"
                                 class="mb-1"
                             >
@@ -257,9 +265,9 @@
                 <div>
                     <vs-row class="mb-4">
                         <vs-input
+                            v-model="searchInputValue"
                             size="small"
                             placeholder="Axtar"
-                            v-model="searchInputValue"
                             class="w-full"
                         />
                     </vs-row>
@@ -271,7 +279,7 @@
                                 </vs-checkbox>
                             </li>
                             <li
-                                v-for="option in checkboxOptions"
+                                v-for="option in countries"
                                 :key="option.id"
                                 class="mb-1"
                             >
@@ -295,9 +303,9 @@
                 <div>
                     <vs-row class="mb-4">
                         <vs-input
+                            v-model="searchInputValue"
                             size="small"
                             placeholder="Axtar"
-                            v-model="searchInputValue"
                             class="w-full"
                         />
                     </vs-row>
@@ -309,7 +317,7 @@
                                 </vs-checkbox>
                             </li>
                             <li
-                                v-for="option in checkboxOptions"
+                                v-for="option in faculties"
                                 :key="option.id"
                                 class="mb-1"
                             >
@@ -333,9 +341,9 @@
                 <div>
                     <vs-row class="mb-4">
                         <vs-input
+                            v-model="searchInputValue"
                             size="small"
                             placeholder="Axtar"
-                            v-model="searchInputValue"
                             class="w-full"
                         />
                     </vs-row>
@@ -347,7 +355,7 @@
                                 </vs-checkbox>
                             </li>
                             <li
-                                v-for="option in checkboxOptions"
+                                v-for="option in departments"
                                 :key="option.id"
                                 class="mb-1"
                             >
@@ -371,9 +379,9 @@
                 <div>
                     <vs-row class="mb-4">
                         <vs-input
+                            v-model="searchInputValue"
                             size="small"
                             placeholder="Axtar"
-                            v-model="searchInputValue"
                             class="w-full"
                         />
                     </vs-row>
@@ -385,7 +393,7 @@
                                 </vs-checkbox>
                             </li>
                             <li
-                                v-for="option in checkboxOptions"
+                                v-for="option in professions"
                                 :key="option.id"
                                 class="mb-1"
                             >
@@ -409,9 +417,9 @@
                 <div>
                     <vs-row class="mb-4">
                         <vs-input
+                            v-model="searchInputValue"
                             size="small"
                             placeholder="Axtar"
-                            v-model="searchInputValue"
                             class="w-full"
                         />
                     </vs-row>
@@ -447,9 +455,9 @@
                 <div>
                     <vs-row class="mb-4">
                         <vs-input
+                            v-model="searchInputValue"
                             size="small"
                             placeholder="Axtar"
-                            v-model="searchInputValue"
                             class="w-full"
                         />
                     </vs-row>
@@ -461,7 +469,7 @@
                                 </vs-checkbox>
                             </li>
                             <li
-                                v-for="option in checkboxOptions"
+                                v-for="option in countries"
                                 :key="option.id"
                                 class="mb-1"
                             >
@@ -481,86 +489,94 @@
 </template>
 
 <script>
-import Datepicker from "vuejs-datepicker";
+import academicDegrees from '@/data/academicDegrees.json';
+import academicNames from '@/data/academicNames.json';
+import faculties from '@/data/faculties.json';
+import departments from '@/data/departments.json';
+import professions from '@/data/professions.json';
+import countries from '@/data/countries.json';
+import researchers from '@/data/researchers.json';
 
 export default {
-    name: "FilterSection",
-    components: {
-        Datepicker
-    },
+    name: 'FilterSection',
     data() {
         return {
-            searchInputValue: "",
+            searchInputValue: '',
+            faculties,
+            departments,
+            countries,
+            professions,
+            researchers,
             categories: [
                 {
                     id: 1,
-                    name: "Tədqiqatçılar"
+                    name: 'Tədqiqatçılar'
                 },
                 {
                     id: 2,
-                    name: "Nəşrlər"
+                    name: 'Nəşrlər'
                 },
                 {
                     id: 3,
-                    name: "Dissertasiyalar"
+                    name: 'Dissertasiyalar'
                 },
                 {
                     id: 4,
-                    name: "Elmi dərəcə, ad və vəzifə"
+                    name: 'Elmi dərəcə, ad və vəzifə'
                 },
                 {
                     id: 5,
-                    name: "Layihələr"
+                    name: 'Layihələr'
                 },
                 {
                     id: 6,
-                    name: "Təhsil məlumatları"
+                    name: 'Təhsil məlumatları'
                 },
                 {
                     id: 7,
-                    name: "Tədris etdiyi fənnlər"
+                    name: 'Tədris etdiyi fənnlər'
                 },
                 {
                     id: 8,
-                    name: "İş təcrübəsi"
+                    name: 'İş təcrübəsi'
                 },
                 {
                     id: 9,
-                    name: "Elmi nəşlərdəki yeri"
+                    name: 'Elmi nəşlərdəki yeri'
                 },
                 {
                     id: 10,
-                    name: "Əqli mülkiyyət"
+                    name: 'Əqli mülkiyyət'
                 },
                 {
                     id: 11,
-                    name: "Müdafiə şurası vəzifəsi"
+                    name: 'Müdafiə şurası vəzifəsi'
                 },
                 {
                     id: 12,
-                    name: "Sertifikatlar"
+                    name: 'Sertifikatlar'
                 },
                 {
                     id: 13,
-                    name: "Mükafatlar"
+                    name: 'Mükafatlar'
                 }
             ],
             checkboxOptions: [
                 {
                     id: 1,
-                    name: "Seçim 1"
+                    name: 'Seçim 1'
                 },
                 {
                     id: 2,
-                    name: "Seçim 2"
+                    name: 'Seçim 2'
                 },
                 {
                     id: 3,
-                    name: "Seçim 3"
+                    name: 'Seçim 3'
                 },
                 {
                     id: 4,
-                    name: "Seçim 4"
+                    name: 'Seçim 4'
                 }
             ],
             selectedOptions: [],

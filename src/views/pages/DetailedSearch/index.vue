@@ -20,7 +20,7 @@
                 <vs-tab label="Tədqiqatçı axtarışı">
                     <ResearcherSearch />
                 </vs-tab>
-                <vs-tab label="Araşdırma fəaliyəti axtarışı">
+                <vs-tab label="Araşdırma fəaliyyəti axtarışı">
                     <ActivitySearch />
                 </vs-tab>
             </vs-tabs>
@@ -36,7 +36,7 @@ export default {
     name: 'DetailedSearch',
     components: {
         ResearcherSearch,
-        ActivitySearch,
-    },
+        ActivitySearch
+    }
 };
 </script>

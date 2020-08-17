@@ -120,7 +120,7 @@ export default {
                 {
                     id: 4,
                     key: 'publications',
-                    title: 'Nəşrlər və işləri'
+                    title: 'Nəşrlər'
                 },
                 {
                     id: 5,
