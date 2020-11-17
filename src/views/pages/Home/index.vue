@@ -8,7 +8,7 @@
 
         <!-- News -->
         <News />
-        
+
         <!-- Announcements -->
         <Announcements />
     </div>
@@ -28,6 +28,6 @@ export default {
         Statistics,
         News,
         Announcements
-    },
+    }
 };
 </script>

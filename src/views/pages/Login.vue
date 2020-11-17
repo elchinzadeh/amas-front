@@ -92,6 +92,8 @@
 </template>
 
 <script>
+import API from '@/api';
+
 export default {
     data() {
         return {
@@ -102,8 +104,31 @@ export default {
     },
     methods: {
         login() {
-            this.$cookies.set('user', 'Elchin Zakizadeh');
-            this.$router.push({name: 'home'});
+            API.Auth.signIn({
+                arasdirmaciEmeil: this.email,
+                arasdirmaciPassword: this.password
+            }).then(response => {
+                if (response.data) {
+                    this.getPersonalInformation().then(() => {
+                        this.$router.push({name: 'home'});
+                    });
+                } else {
+                    this.email = '';
+                    this.password= '';
+                }
+            });
+        },
+        getPersonalInformation() {
+            return new Promise((resolve, reject) => {
+                API.PersonalInformation.get().then(response => {
+                    if (response.data) {
+                        this.$cookies.set('userData', JSON.stringify(response.data));
+                        resolve();
+                    } else {
+                        reject();
+                    }
+                });
+            });
         }
     }
 };

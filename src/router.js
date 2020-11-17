@@ -43,6 +43,68 @@ const router = new Router({
                     component: () => import('./views/pages/Project')
                 },
                 {
+                    path: '/profile/',
+                    component: () => import('./views/pages/Researcher'),
+                    children: [
+                        {
+                            path: 'education',
+                            name: 'profile.education',
+                            component: () =>
+                                import('./views/pages/Researcher/Education/')
+                        },
+                        {
+                            path: 'researchAreas',
+                            name: 'profile.researchAreas',
+                            component: () =>
+                                import('./views/pages/Researcher/ResearchAreas/')
+                        },
+                        {
+                            path: 'experience',
+                            name: 'profile.experience',
+                            component: () =>
+                                import('./views/pages/Researcher/Experience/')
+                        },
+                        {
+                            path: 'publications',
+                            name: 'profile.publications',
+                            component: () =>
+                                import('./views/pages/Researcher/Publications/')
+                        },
+                        {
+                            path: 'projects',
+                            name: 'profile.projects',
+                            component: () =>
+                                import('./views/pages/Researcher/Projects/')
+                        },
+                        {
+                            path: 'academicActivity',
+                            name: 'profile.academicActivity',
+                            component: () =>
+                                import(
+                                    './views/pages/Researcher/AcademicActivity/'
+                                )
+                        },
+                        {
+                            path: 'achievements',
+                            name: 'profile.achievements',
+                            component: () =>
+                                import('./views/pages/Researcher/Achievements/')
+                        },
+                        {
+                            path: 'announcements',
+                            name: 'profile.announcements',
+                            component: () =>
+                                import('./views/pages/Researcher/Announcements/')
+                        },
+                        {
+                            path: 'contact',
+                            name: 'profile.contact',
+                            component: () =>
+                                import('./views/pages/Researcher/Contact/')
+                        }
+                    ]
+                },
+                {
                     path: '/researcher/:id/',
                     component: () => import('./views/pages/Researcher'),
                     children: [

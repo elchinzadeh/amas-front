@@ -15,25 +15,15 @@
             </div>
 
             <vs-list>
-                <div class="vs-list--item">
+                <div
+                    v-for="item in researchAreas"
+                    :key="item.id"
+                    class="vs-list--item"
+                >
                     <div class="list-titles">
                         <div class="vs-list--title">
                             Information Systems, Communication and Control
                             Engineering
-                        </div>
-                    </div>
-                </div>
-                <div class="vs-list--item">
-                    <div class="list-titles">
-                        <div class="vs-list--title">
-                            Computer Sciences
-                        </div>
-                    </div>
-                </div>
-                <div class="vs-list--item">
-                    <div class="list-titles">
-                        <div class="vs-list--title">
-                            Electrical and Electronics Engineering
                         </div>
                     </div>
                 </div>
@@ -43,5 +33,24 @@
 </template>
 
 <script>
-export default {};
+export default {
+    name: 'ResearchAreas',
+    data() {
+        return {
+            researchAreas: []
+        };
+    },
+    mounted() {
+        this.getResearchAreas();
+    },
+    methods: {
+        getResearchAreas() {
+            API.ResearchAreas.getAll().then(response => {
+                if (response.data) {
+                    this.researchAreas = response.data.edu;
+                }
+            });
+        }
+    }
+};
 </script>

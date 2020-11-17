@@ -34,10 +34,18 @@
                                 <div>
                                     <div class="clearfix">
                                         <vs-input
-                                            v-model="displayName"
-                                            label-placeholder="Ad, Soyad"
-                                            name="displayName"
-                                            placeholder="Ad, Soyad"
+                                            v-model="firstName"
+                                            label-placeholder="Ad"
+                                            name="firstName"
+                                            placeholder="Ad"
+                                            class="w-full"
+                                        />
+
+                                        <vs-input
+                                            v-model="lastName"
+                                            label-placeholder="Soyad"
+                                            name="lastName"
+                                            placeholder="Soyad"
                                             class="w-full"
                                         />
 
@@ -69,13 +77,6 @@
                                             class="w-full mt-6"
                                         />
 
-                                        <!-- <vs-checkbox
-                                            v-model="isTermsConditionAccepted"
-                                            class="mt-6"
-                                        >
-                                            I accept the terms & conditions.
-                                        </vs-checkbox> -->
-
                                         <vs-button
                                             type="border"
                                             :to="{ name: 'login' }"
@@ -85,7 +86,6 @@
                                         </vs-button>
                                         <vs-button
                                             class="float-right mt-6"
-                                            :to="{ name: 'home' }"
                                             @click="register"
                                         >
                                             Qeydiyyatdan keç
@@ -102,20 +102,40 @@
 </template>
 
 <script>
+import API from '@/api';
+
 export default {
     name: 'Registration',
     data() {
         return {
-            displayName: '',
+            firstName: '',
+            lastName: '',
             email: '',
             password: '',
             confirm_password: ''
-            // isTermsConditionAccepted: true
         };
     },
     methods: {
         register() {
-            //
+            const body = {
+                arasdirmaciAd: this.firstName,
+                arasdirmaciSoyad: this.lastName,
+                arasdirmaciEmeil: this.email,
+                arasdirmaciPassword: this.password
+            };
+
+            API.Auth.signUp(body).then(response => {
+                if (response.data.res) {
+                    this.$router.push({name: 'login'});
+                    this.$vs.notify({
+                        title: 'Color',
+                        text: 'Lorem ipsum dolor sit amet, consectetur',
+                        color: color
+                    });
+                } else {
+
+                }
+            });
         }
     }
 };

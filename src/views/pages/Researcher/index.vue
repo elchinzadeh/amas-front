@@ -29,7 +29,7 @@
                 class="pl-4"
             >
                 <!-- Content -->
-                <vs-row>
+                <vs-row v-if="user">
                     <vx-card class="mb-base">
                         <vs-row>
                             <!-- Avatar -->
@@ -39,7 +39,7 @@
                             >
                                 <vs-image
                                     class="w-full"
-                                    src="https://www.w3schools.com/howto/img_avatar.png"
+                                    :src="user.profilepic || 'https://www.w3schools.com/howto/img_avatar.png'"
                                 />
                             </vs-col>
 
@@ -49,7 +49,7 @@
                                     class="mb-4 flex justify-between items-center"
                                 >
                                     <h3>
-                                        Elchin Zakizadeh
+                                        {{ user.fullName }}
                                     </h3>
                                     <vs-button
                                         radius
@@ -66,7 +66,7 @@
                                             Kafedra
                                         </td>
                                         <td>
-                                            Kompüter sistemləri və şəbəkələri
+                                            {{ user.chair }}
                                         </td>
                                     </tr>
                                     <tr>
@@ -79,7 +79,7 @@
                                         <td class="font-semibold pr-4">
                                             Email
                                         </td>
-                                        <td>elchin.zakizadeh@aztu.edu.az</td>
+                                        <td>{{ user.email }}</td>
                                     </tr>
                                 </table>
                             </vs-col>
@@ -148,11 +148,13 @@ export default {
                     title: 'Əlaqə məlumatları'
                 }
             ],
-            activeMenuKey: null
+            activeMenuKey: null,
+            user: null
         };
     },
     mounted() {
         this.activeMenuKey = this.$route.name.split('.')[1];
+        this.getLoggedUserData();
     },
     methods: {
         menuOnClick(key, id) {
@@ -164,6 +166,12 @@ export default {
             //     button.classList.remove("isActive");
             //     button.style = {};
             // });
+        },
+        getLoggedUserData() {
+            const userData = this.$cookies.get('userData');
+            if (userData) {
+                this.user = userData;
+            }
         }
     }
 };

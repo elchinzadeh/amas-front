@@ -1,20 +1,21 @@
 <template>
     <div class="w-full">
         <!-- Education -->
-        <EducationInfo />
+        <EducationInfo :data="educationData.edu" />
 
         <!-- Thesis -->
-        <Thesis />
+        <Thesis :data="educationData.edu" />
 
         <!-- Languages -->
-        <Languages />
+        <Languages :data="educationData.foreign_language" />
 
         <!-- Certifications -->
-        <Certifications />
+        <Certifications :data="educationData.sertifikat" />
     </div>
 </template>
 
 <script>
+import API from '@/api';
 import EducationInfo from './EducationInfo';
 import Thesis from './Thesis';
 import Languages from './Languages';
@@ -27,6 +28,23 @@ export default {
         Thesis,
         Languages,
         Certifications
+    },
+    data() {
+        return {
+            educationData: []
+        };
+    },
+    mounted() {
+        this.getEducationInfo();
+    },
+    methods: {
+        getEducationInfo() {
+            API.Education.getAll().then(response => {
+                if (response.data) {
+                    this.educationData = response.data;
+                }
+            });
+        }
     }
 };
 </script>

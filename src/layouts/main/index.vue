@@ -25,7 +25,7 @@
             </div>
 
             <vs-navbar-item
-                v-if="!loggedUser"
+                v-if="!user"
                 index="1"
             >
                 <router-link
@@ -36,7 +36,7 @@
             </vs-navbar-item>
 
             <vs-navbar-item
-                v-if="!loggedUser"
+                v-if="!user"
                 index="2"
             >
                 <router-link
@@ -47,7 +47,7 @@
             </vs-navbar-item>
 
             <vs-navbar-item
-                v-if="loggedUser"
+                v-if="user"
                 index="3"
             >
                 <vs-dropdown>
@@ -56,7 +56,7 @@
                             href="#"
                             class="text-base"
                         >
-                            {{ loggedUser }}
+                            {{ user.fullName }}
                         </a>
                         <vs-avatar />
                     </div>
@@ -95,18 +95,27 @@ export default {
     components: {
         TheFooter
     },
-    computed: {
-        loggedUser() {
-            return this.$cookies.get('user') || null;
-        }
+    data() {
+        return {
+            user: null
+        };
+    },
+    mounted() {
+        this.getLoggedUserData();
     },
     methods: {
+        getLoggedUserData() {
+            const userData = this.$cookies.get('userData');
+            if (userData) {
+                this.user = userData;
+            }
+        },
         logout() {
-            this.$cookies.remove('user');
+            this.$cookies.remove('userData');
             this.$router.go();
         },
         goAccount() {
-            this.$router.push({ name: 'researcher.education' });
+            this.$router.push({ name: 'profile.education' });
         }
     }
 };
