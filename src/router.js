@@ -14,34 +14,37 @@ const router = new Router({
         // MAIN LAYOUT ROUTES
         // =============================================================================
         {
-            path: '',
+            path: '/',
             component: () => import('./layouts/main'),
             children: [
                 {
                     path: '/',
                     name: 'home',
-                    component: () => import('./views/pages/Home')
+                    // component: () => import('./views/pages/Home')
+                    redirect: {
+                        name: 'profile.education'
+                    }
                 },
-                {
-                    path: '/detailed-search',
-                    name: 'detailedSearch',
-                    component: () => import('./views/pages/DetailedSearch')
-                },
-                {
-                    path: '/result',
-                    name: 'result',
-                    component: () => import('./views/pages/Result')
-                },
-                {
-                    path: '/publication/:id',
-                    name: 'publication',
-                    component: () => import('./views/pages/Publication')
-                },
-                {
-                    path: '/project/:id',
-                    name: 'project',
-                    component: () => import('./views/pages/Project')
-                },
+                // {
+                //     path: '/detailed-search',
+                //     name: 'detailedSearch',
+                //     component: () => import('./views/pages/DetailedSearch')
+                // },
+                // {
+                //     path: '/result',
+                //     name: 'result',
+                //     component: () => import('./views/pages/Result')
+                // },
+                // {
+                //     path: '/publication/:id',
+                //     name: 'publication',
+                //     component: () => import('./views/pages/Publication')
+                // },
+                // {
+                //     path: '/project/:id',
+                //     name: 'project',
+                //     component: () => import('./views/pages/Project')
+                // },
                 {
                     path: '/profile/',
                     component: () => import('./views/pages/Researcher'),
@@ -103,69 +106,69 @@ const router = new Router({
                                 import('./views/pages/Researcher/Contact/')
                         }
                     ]
-                },
-                {
-                    path: '/researcher/:id/',
-                    component: () => import('./views/pages/Researcher'),
-                    children: [
-                        {
-                            path: 'education',
-                            name: 'researcher.education',
-                            component: () =>
-                                import('./views/pages/Researcher/Education/')
-                        },
-                        {
-                            path: 'researchAreas',
-                            name: 'researcher.researchAreas',
-                            component: () =>
-                                import('./views/pages/Researcher/ResearchAreas/')
-                        },
-                        {
-                            path: 'experience',
-                            name: 'researcher.experience',
-                            component: () =>
-                                import('./views/pages/Researcher/Experience/')
-                        },
-                        {
-                            path: 'publications',
-                            name: 'researcher.publications',
-                            component: () =>
-                                import('./views/pages/Researcher/Publications/')
-                        },
-                        {
-                            path: 'projects',
-                            name: 'researcher.projects',
-                            component: () =>
-                                import('./views/pages/Researcher/Projects/')
-                        },
-                        {
-                            path: 'academicActivity',
-                            name: 'researcher.academicActivity',
-                            component: () =>
-                                import(
-                                    './views/pages/Researcher/AcademicActivity/'
-                                )
-                        },
-                        {
-                            path: 'achievements',
-                            name: 'researcher.achievements',
-                            component: () =>
-                                import('./views/pages/Researcher/Achievements/')
-                        },
-                        {
-                            path: 'announcements',
-                            name: 'researcher.announcements',
-                            component: () =>
-                                import('./views/pages/Researcher/Announcements/')
-                        },
-                        {
-                            path: 'contact',
-                            name: 'researcher.contact',
-                            component: () =>
-                                import('./views/pages/Researcher/Contact/')
-                        }
-                    ]
                 }
+                // {
+                //     path: '/researcher/:id/',
+                //     component: () => import('./views/pages/Researcher'),
+                //     children: [
+                //         {
+                //             path: 'education',
+                //             name: 'researcher.education',
+                //             component: () =>
+                //                 import('./views/pages/Researcher/Education/')
+                //         },
+                //         {
+                //             path: 'researchAreas',
+                //             name: 'researcher.researchAreas',
+                //             component: () =>
+                //                 import('./views/pages/Researcher/ResearchAreas/')
+                //         },
+                //         {
+                //             path: 'experience',
+                //             name: 'researcher.experience',
+                //             component: () =>
+                //                 import('./views/pages/Researcher/Experience/')
+                //         },
+                //         {
+                //             path: 'publications',
+                //             name: 'researcher.publications',
+                //             component: () =>
+                //                 import('./views/pages/Researcher/Publications/')
+                //         },
+                //         {
+                //             path: 'projects',
+                //             name: 'researcher.projects',
+                //             component: () =>
+                //                 import('./views/pages/Researcher/Projects/')
+                //         },
+                //         {
+                //             path: 'academicActivity',
+                //             name: 'researcher.academicActivity',
+                //             component: () =>
+                //                 import(
+                //                     './views/pages/Researcher/AcademicActivity/'
+                //                 )
+                //         },
+                //         {
+                //             path: 'achievements',
+                //             name: 'researcher.achievements',
+                //             component: () =>
+                //                 import('./views/pages/Researcher/Achievements/')
+                //         },
+                //         {
+                //             path: 'announcements',
+                //             name: 'researcher.announcements',
+                //             component: () =>
+                //                 import('./views/pages/Researcher/Announcements/')
+                //         },
+                //         {
+                //             path: 'contact',
+                //             name: 'researcher.contact',
+                //             component: () =>
+                //                 import('./views/pages/Researcher/Contact/')
+                //         }
+                //     ]
+                // }
             ]
         },
         // =============================================================================

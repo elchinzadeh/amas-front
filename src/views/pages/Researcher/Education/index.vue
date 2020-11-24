@@ -1,7 +1,7 @@
 <template>
     <div class="w-full">
         <!-- Education -->
-        <EducationInfo :data="educationData.edu" />
+        <EducationInfo />
 
         <!-- Thesis -->
         <Thesis :data="educationData.edu" />
@@ -16,10 +16,11 @@
 
 <script>
 import API from '@/api';
-import EducationInfo from './EducationInfo';
+import EducationInfo from './EducationInfo/';
 import Thesis from './Thesis';
 import Languages from './Languages';
 import Certifications from './Certifications';
+import './style.scss';
 
 export default {
     name: 'Education',

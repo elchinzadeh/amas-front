@@ -3,8 +3,8 @@
         <template slot="prepend">
             <div class="prepend-text btn-addon">
                 <v-select
-                    :options="selectOptions"
                     v-model="selectedOption"
+                    :options="selectOptions"
                     label="name"
                     placeholder="Hamısı"
                     :dir="$vs.rtl ? 'rtl' : 'ltr'"
@@ -13,10 +13,10 @@
         </template>
 
         <vs-input
+            v-model="searchText"
             placeholder="Açar sözləri daxil edin"
             class="input"
             size="large"
-            v-model="searchText"
         />
 
         <template slot="append">
@@ -34,44 +34,40 @@
 </template>
 
 <script>
-import vSelect from "vue-select";
-import "./style.scss";
+import './style.scss';
 
 export default {
-    name: "SearchBox",
-    components: {
-        "v-select": vSelect
-    },
+    name: 'SearchBox',
     data() {
         return {
             selectOptions: [
                 {
                     id: 1,
-                    name: "Nəşrlər"
+                    name: 'Nəşrlər'
                 },
                 {
                     id: 2,
-                    name: "Layihələr"
+                    name: 'Layihələr'
                 },
                 {
                     id: 3,
-                    name: "Mükafatlar"
+                    name: 'Mükafatlar'
                 },
                 {
                     id: 4,
-                    name: "Əqli mülkiyyət"
+                    name: 'Əqli mülkiyyət'
                 },
                 {
                     id: 5,
-                    name: "Tədqiqatçılar"
+                    name: 'Tədqiqatçılar'
                 },
                 {
                     id: 6,
-                    name: "Dissertasiyalar"
+                    name: 'Dissertasiyalar'
                 }
             ],
             selectedOption: null,
-            searchText: ""
+            searchText: ''
         };
     }
 };

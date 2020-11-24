@@ -7,7 +7,7 @@
                     color="success"
                     type="flat"
                     icon="add"
-                    @click="popupActive = true"
+                    @click="toggleModal"
                 >
                     Əlavə et
                 </vs-button>
@@ -43,40 +43,40 @@
             </vs-list>
         </vx-card>
 
-        <vs-popup
-            title="Təhsil məlumatı əlavə et"
-            :active.sync="popupActive"
-        >
-            <vs-input
-                type="email"
-                label="Name"
-                name="name"
-                class=""
-                placeholder="Placeholder"
-            />
-            <vs-input
-                type="password"
-                label="Password"
-                placeholder="Disabled"
-            />
-        </vs-popup>
+        <EducationInfoModal :active.sync="modalActive" />
     </div>
 </template>
 
 <script>
+import EducationInfoModal from './Modal';
 
 export default {
     name: 'EducationInfo',
+    components: {
+        EducationInfoModal
+    },
     props: {
         data: {
-            type: Object,
-            required: true
+            type: Array,
+            required: false,
+            default: () => {
+                return [{name: 'yo'}];
+            }
         }
     },
     data() {
         return {
-            popupActive: false
+            modalActive: false
         };
+    },
+    methods: {
+        toggleModal(value) {
+            if (value === true || value === false) {
+                this.modalActive = value;
+            } else {
+                this.modalActive = !this.modalActive;
+            }
+        }
     }
 };
 </script>

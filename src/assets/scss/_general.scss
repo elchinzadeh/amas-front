@@ -13,3 +13,29 @@
     background-size: cover;
     background-position: center;
 }
+
+/*************/
+/*   Popup   */
+/*************/
+.vs-popup {
+    .form-field {
+        margin-bottom: 1rem;
+
+        label {
+            font-size: 1rem;
+        }
+
+        .vs-input {
+            width: 100%;
+        }
+    }
+
+    .popup-footer {
+        display: flex;
+        justify-content: flex-end;
+
+        .vs-button:not(:first-child) {
+            margin-left: 1rem;
+        }
+    }
+}

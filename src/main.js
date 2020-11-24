@@ -46,7 +46,9 @@ require('./assets/css/iconfont.css');
 
 // Vue select css
 // Note: In latest version you have to add it separately
-// import 'vue-select/dist/vue-select.css';
+import VSelect from 'vue-select';
+import 'vue-select/dist/vue-select.css';
+Vue.component('v-select', VSelect);
 
 Vue.config.productionTip = false;
 

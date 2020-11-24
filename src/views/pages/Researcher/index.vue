@@ -158,7 +158,12 @@ export default {
     },
     methods: {
         menuOnClick(key, id) {
-            this.$router.push({ name: 'researcher.' + key, params: { id } });
+            if (this.$route.name.match('profile')) {
+                this.$router.push({ name: 'profile.' + key, params: { id } });
+            } else {
+                this.$router.push({ name: 'researcher.' + key, params: { id } });
+            };
+
             this.activeMenuKey = key;
 
             // this.$el.querySelectorAll(".vs-button").forEach(button => {
