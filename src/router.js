@@ -80,19 +80,25 @@ const router = new Router({
                                 import('./views/pages/Researcher/Projects/')
                         },
                         {
-                            path: 'academicActivity',
-                            name: 'profile.academicActivity',
+                            path: 'patents',
+                            name: 'profile.patents',
                             component: () =>
-                                import(
-                                    './views/pages/Researcher/AcademicActivity/'
-                                )
+                                import('./views/pages/Researcher/Patents/')
                         },
-                        {
-                            path: 'achievements',
-                            name: 'profile.achievements',
-                            component: () =>
-                                import('./views/pages/Researcher/Achievements/')
-                        },
+                        // {
+                        //     path: 'academicActivity',
+                        //     name: 'profile.academicActivity',
+                        //     component: () =>
+                        //         import(
+                        //             './views/pages/Researcher/AcademicActivity/'
+                        //         )
+                        // },
+                        // {
+                        //     path: 'achievements',
+                        //     name: 'profile.achievements',
+                        //     component: () =>
+                        //         import('./views/pages/Researcher/Achievements/')
+                        // },
                         {
                             path: 'announcements',
                             name: 'profile.announcements',
@@ -129,12 +135,12 @@ const router = new Router({
                 //             component: () =>
                 //                 import('./views/pages/Researcher/Experience/')
                 //         },
-                //         {
-                //             path: 'publications',
-                //             name: 'researcher.publications',
-                //             component: () =>
-                //                 import('./views/pages/Researcher/Publications/')
-                //         },
+                // {
+                //     path: 'publications',
+                //     name: 'researcher.publications',
+                //     component: () =>
+                //         import('./views/pages/Researcher/Publications/')
+                // }
                 //         {
                 //             path: 'projects',
                 //             name: 'researcher.projects',
@@ -208,6 +214,27 @@ router.afterEach(() => {
     const appLoading = document.getElementById('loading-bg');
     if (appLoading) {
         appLoading.style.display = 'none';
+    }
+});
+
+router.beforeEach((to, from, next) => {
+    const authRoutes = ['login', 'registration'];
+    const getToken = () => Vue.$cookies.get('.AspNetCore.Cookies');
+
+    if (authRoutes.includes(to.name)) {
+        if (getToken()) {
+            next({ name: 'home' });
+        } else {
+            next();
+            localStorage.removeItem('userData');
+        }
+    } else {
+        if (getToken()) {
+            next();
+        } else {
+            next({ name: 'login' });
+            localStorage.removeItem('userData');
+        }
     }
 });
 

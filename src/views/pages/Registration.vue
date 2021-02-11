@@ -33,63 +33,138 @@
                                 </div>
                                 <div>
                                     <div class="clearfix">
-                                        <vs-input
-                                            v-model="firstName"
-                                            label-placeholder="Ad"
-                                            name="firstName"
-                                            placeholder="Ad"
-                                            class="w-full"
-                                        />
+                                        <ValidationObserver v-slot="{ invalid }">
+                                            <ValidationProvider
+                                                v-slot="{ errors }"
+                                                rules="required"
+                                                name="Ad"
+                                            >
+                                                <vs-input
+                                                    v-model="firstName"
+                                                    label-placeholder="Ad"
+                                                    name="firstName"
+                                                    placeholder="Ad"
+                                                    class="w-full"
+                                                />
+                                                <span
+                                                    v-show="errors"
+                                                    class="text-danger text-sm"
+                                                >
+                                                    {{ errors[0] }}
+                                                </span>
+                                            </ValidationProvider>
 
-                                        <vs-input
-                                            v-model="lastName"
-                                            label-placeholder="Soyad"
-                                            name="lastName"
-                                            placeholder="Soyad"
-                                            class="w-full"
-                                        />
 
-                                        <vs-input
-                                            v-model="email"
-                                            name="email"
-                                            type="email"
-                                            label-placeholder="E-poçt"
-                                            placeholder="E-poçt"
-                                            class="w-full mt-6"
-                                        />
+                                            <ValidationProvider
+                                                v-slot="{ errors }"
+                                                rules="required"
+                                                name="Soyad"
+                                            >
+                                                <vs-input
+                                                    v-model="lastName"
+                                                    label-placeholder="Soyad"
+                                                    name="lastName"
+                                                    placeholder="Soyad"
+                                                    class="w-full"
+                                                />
+                                                <span
+                                                    v-show="errors"
+                                                    class="text-danger text-sm"
+                                                >
+                                                    {{ errors[0] }}
+                                                </span>
+                                            </ValidationProvider>
 
-                                        <vs-input
-                                            ref="password"
-                                            v-model="password"
-                                            type="password"
-                                            name="password"
-                                            label-placeholder="Şifrə"
-                                            placeholder="Şifrə"
-                                            class="w-full mt-6"
-                                        />
 
-                                        <vs-input
-                                            v-model="confirm_password"
-                                            type="password"
-                                            name="confirm_password"
-                                            label-placeholder="Şifrənin təkrarı"
-                                            placeholder="Şifrənin təkrarı"
-                                            class="w-full mt-6"
-                                        />
+                                            <ValidationProvider
+                                                v-slot="{ errors }"
+                                                rules="required"
+                                                name="E-poçt"
+                                            >
+                                                <vs-input
+                                                    v-model="email"
+                                                    name="email"
+                                                    type="email"
+                                                    label-placeholder="E-poçt"
+                                                    placeholder="E-poçt"
+                                                    class="w-full mt-6"
+                                                />
+                                                <span
+                                                    v-show="errors"
+                                                    class="text-danger text-sm"
+                                                >
+                                                    {{ errors[0] }}
+                                                </span>
+                                            </ValidationProvider>
 
-                                        <vs-button
-                                            type="border"
-                                            :to="{ name: 'login' }"
-                                            class="mt-6"
-                                        >
-                                            Daxil ol
-                                        </vs-button>
-                                        <vs-button
-                                            class="float-right mt-6"
-                                            @click="register"
-                                        >
-                                            Qeydiyyatdan keç
-                                        </vs-button>
+
+                                            <ValidationProvider
+                                                v-slot="{ errors }"
+                                                rules="required"
+                                                name="Şifrə"
+                                            >
+                                                <vs-input
+                                                    ref="password"
+                                                    v-model="password"
+                                                    type="password"
+                                                    name="password"
+                                                    label-placeholder="Şifrə"
+                                                    placeholder="Şifrə"
+                                                    class="w-full mt-6"
+                                                />
+                                                <span
+                                                    v-show="errors"
+                                                    class="text-danger text-sm"
+                                                >
+                                                    {{ errors[0] }}
+                                                </span>
+                                            </ValidationProvider>
+
+
+                                            <ValidationProvider
+                                                v-slot="{ errors }"
+                                                rules="required"
+                                                name="Şifrənin təkrarı"
+                                            >
+                                                <vs-input
+                                                    v-model="confirm_password"
+                                                    type="password"
+                                                    name="confirm_password"
+                                                    label-placeholder="Şifrənin təkrarı"
+                                                    placeholder="Şifrənin təkrarı"
+                                                    class="w-full mt-6"
+                                                />
+                                                <span
+                                                    v-show="errors"
+                                                    class="text-danger text-sm"
+                                                >
+                                                    {{ errors[0] }}
+                                                </span>
+                                                <span
+                                                    v-if="password && confirm_password && !isPasswordsSame"
+                                                    class="text-danger text-sm"
+                                                >
+                                                    Şifrələr uyğun gəlmir
+                                                </span>
+                                            </ValidationProvider>
+
+                                            <div>
+                                                <vs-button
+                                                    type="border"
+                                                    :to="{ name: 'login' }"
+                                                    class="mt-6"
+                                                >
+                                                    Daxil ol
+                                                </vs-button>
+                                                <vs-button
+                                                    class="float-right mt-6"
+                                                    :disabled="invalid || !isPasswordsSame"
+                                                    @click="register"
+                                                >
+                                                    Qeydiyyatdan keç
+                                                </vs-button>
+                                            </div>
+                                        </ValidationObserver>
                                     </div>
                                 </div>
                             </div>
@@ -115,22 +190,25 @@ export default {
             confirm_password: ''
         };
     },
+    computed: {
+        isPasswordsSame() {
+            return this.password === this.confirm_password;
+        }
+    },
     methods: {
         register() {
             const body = {
-                arasdirmaciAd: this.firstName,
-                arasdirmaciSoyad: this.lastName,
-                arasdirmaciEmeil: this.email,
-                arasdirmaciPassword: this.password
+                firstName: this.firstName,
+                lastName: this.lastName,
+                email: this.email,
+                password: this.password
             };
 
             API.Auth.signUp(body).then(response => {
-                if (response.data.res) {
+                if (response.data) {
                     this.$router.push({name: 'login'});
                     this.$vs.notify({
-                        title: 'Color',
-                        text: 'Lorem ipsum dolor sit amet, consectetur',
-                        color: color
+                        title: 'Qeydiyyat tamamlandı'
                     });
                 } else {
 

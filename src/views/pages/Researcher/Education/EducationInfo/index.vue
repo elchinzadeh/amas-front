@@ -15,27 +15,35 @@
 
             <vs-list>
                 <div
-                    v-for="item in data"
+                    v-for="item in educationInfo"
                     :key="item.id"
                     class="vs-list--item"
                 >
                     <div class="list-titles">
                         <div class="vs-list--title">
-                            Doctorate (2016-2020)
+                            <span>
+                                {{ item.level.name }} ({{ formatDate(item.startDate) }} - {{ formatDate(item.endDate) }})
+                            </span>
+                            <vs-button
+                                color="danger"
+                                type="flat"
+                                icon="icon-trash-2"
+                                icon-pack="feather"
+                                @click="openDestroyDialog(item.id)"
+                            />
                         </div>
                         <div class="vs-list--subtitle mt-2">
                             <div>
                                 <b>Müəssisə:</b>
-                                The University of Texas at Austin
+                                {{ item.organization.name }}
                             </div>
                             <div>
-                                <b>İxtisas, fakültə:</b>
-                                School of Engineering, Electrical and Computer
-                                Engineering
+                                <b>İxtisas:</b>
+                                {{ item.profession.name }}
                             </div>
                             <div>
                                 <b>Ölkə:</b>
-                                United States Of America
+                                {{ item.country.name }}
                             </div>
                         </div>
                     </div>
@@ -43,39 +51,79 @@
             </vs-list>
         </vx-card>
 
-        <EducationInfoModal :active.sync="modalActive" />
+        <EducationInfoModal
+            :active.sync="modalActive"
+            @afterInsert="getEducationInfo"
+        />
     </div>
 </template>
 
 <script>
+import API from '@/api';
 import EducationInfoModal from './Modal';
+import { formatDate } from '@/helpers';
 
 export default {
     name: 'EducationInfo',
     components: {
         EducationInfoModal
     },
-    props: {
-        data: {
-            type: Array,
-            required: false,
-            default: () => {
-                return [{name: 'yo'}];
-            }
-        }
-    },
     data() {
         return {
+            educationInfo: [],
             modalActive: false
         };
     },
+    mounted() {
+        this.getEducationInfo();
+    },
     methods: {
+        formatDate,
+        getEducationInfo() {
+            const config = {
+                params: {
+                    user_id: this.$store.state.user.id
+                }
+            };
+
+            API.ResearcherEducation.getAll(config).then(res => {
+                if (res.data) {
+                    this.educationInfo = res.data;
+                }
+            });
+        },
         toggleModal(value) {
             if (value === true || value === false) {
                 this.modalActive = value;
             } else {
                 this.modalActive = !this.modalActive;
             }
+        },
+        openDestroyDialog (id) {
+            const that = this;
+
+            const dialogConfig = {
+                type: 'confirm',
+                color: 'danger',
+                title: 'Silməyə əminsiniz?',
+                text: 'Təhsil məlumatı ona bağlı olan Dissertasiyalar ilə birlikdə silinəcək. Bu əməliyyat geri qaytarıla bilməz.',
+                acceptText: 'Bəli, sil',
+                cancelText: 'Xeyr',
+                accept() { return that.destroy(id); }
+            };
+
+            this.$vs.dialog(dialogConfig);
+        },
+        destroy(id) {
+            const config = {
+                params: {
+                    id
+                }
+            };
+
+            API.ResearcherEducation.destroy(config).then(res => {
+                this.getEducationInfo();
+            });
         }
     }
 };

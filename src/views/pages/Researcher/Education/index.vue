@@ -3,21 +3,20 @@
         <!-- Education -->
         <EducationInfo />
 
-        <!-- Thesis -->
-        <Thesis :data="educationData.edu" />
+        <!-- Dissertations -->
+        <Dissertations />
 
         <!-- Languages -->
-        <Languages :data="educationData.foreign_language" />
+        <Languages />
 
         <!-- Certifications -->
-        <Certifications :data="educationData.sertifikat" />
+        <Certifications />
     </div>
 </template>
 
 <script>
-import API from '@/api';
 import EducationInfo from './EducationInfo/';
-import Thesis from './Thesis';
+import Dissertations from './Dissertations';
 import Languages from './Languages';
 import Certifications from './Certifications';
 import './style.scss';
@@ -26,26 +25,12 @@ export default {
     name: 'Education',
     components: {
         EducationInfo,
-        Thesis,
+        Dissertations,
         Languages,
         Certifications
     },
     data() {
-        return {
-            educationData: []
-        };
-    },
-    mounted() {
-        this.getEducationInfo();
-    },
-    methods: {
-        getEducationInfo() {
-            API.Education.getAll().then(response => {
-                if (response.data) {
-                    this.educationData = response.data;
-                }
-            });
-        }
+        return {};
     }
 };
 </script>

@@ -1,0 +1,76 @@
+.textBookModal {
+    .vs-popup {
+        display: flex;
+        flex-direction: column;
+        
+        .vs-popup--content {
+            flex-grow: 1;
+        }
+    }
+
+    .vs-input-number {
+        display: flex;
+
+        .vs-input-number--input {
+            flex-grow: 1;
+        }
+    }
+
+    .authors {
+        margin: 1rem 0;
+
+        .con-vs-chip {
+            margin: 0 1rem 0 0;
+            font-size: 1rem;
+    
+            .con-vs-avatar {
+                width: 34px;
+                height: 34px;
+            }
+        }
+    }
+
+    .url-input-field {
+        display: flex;
+        align-items: stretch;
+
+        .vs__dropdown-toggle {
+            padding: 0;
+            height: 100%;
+            min-width: 200px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .vs-input {
+            flex-grow: 1;
+
+            input {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+    }
+
+}
+
+.list-titles {
+    width: 100%;
+    .vs-list--title {
+        display: flex;
+        align-items: center;
+        
+        .left-side {
+            display: flex;
+            flex-grow: 1;
+        }
+    }
+}
+
+.vs-list--urls {
+    display: flex;
+    margin-left: 1rem;
+    & > * {
+        margin-right: 0.5rem;
+    }
+}

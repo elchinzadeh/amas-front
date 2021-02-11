@@ -1,42 +1,58 @@
 <template>
     <div class="w-full">
-        <!-- Indexed Journals -->
-        <IndexedJournals />
+        <!-- Indexed Articles -->
+        <IndexedArticles />
 
-        <!-- Other Journals -->
-        <OtherJournals />
-
-        <!-- Articles -->
-        <Articles />
-
-        <!-- Monographs -->
-        <Monographs />
+        <!-- Other Articles -->
+        <OtherArticles />
 
         <!-- TextBooks -->
         <TextBooks />
 
         <!-- Thesis -->
-        <Thesis />
+        <Theses />
     </div>
 </template>
 
 <script>
-import Articles from './Articles';
-import IndexedJournals from './IndexedJournals';
-import Monographs from './Monographs';
-import OtherJournals from './OtherJournals';
-import TextBooks from './TextBooks';
-import Thesis from './Thesis';
+import IndexedArticles from './Articles/IndexedArticles';
+import OtherArticles from './Articles/OtherArticles';
+import TextBooks from './TextBooks/';
+import Theses from './Theses/';
 
 export default {
     name: 'Publications',
     components: {
-        Articles,
-        IndexedJournals,
-        Monographs,
-        OtherJournals,
+        IndexedArticles,
+        OtherArticles,
         TextBooks,
-        Thesis
+        Theses
     }
 };
 </script>
+
+{
+    name,
+    description,
+    date,
+    publisher: {
+        id,
+        name
+    },
+    researchers: {
+        internal: [{
+            id,
+            firstName,
+            lastName,
+            patronymic
+        }],
+        external: [{
+            id,
+            name
+        }]
+    },
+    urls: [{
+        url,
+        urlType
+    }]
+}

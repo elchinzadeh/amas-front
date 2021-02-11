@@ -56,7 +56,7 @@
                             href="#"
                             class="text-base"
                         >
-                            {{ user.fullName }}
+                            {{ userFullName }}
                         </a>
                         <vs-avatar />
                     </div>
@@ -100,19 +100,26 @@ export default {
             user: null
         };
     },
+    computed: {
+        userFullName() {
+            const { firstName, lastName, patronymic } = this.user;
+            return [ firstName, lastName, patronymic ].filter(x => x).join(' ');
+        }
+    },
     mounted() {
         this.getLoggedUserData();
     },
     methods: {
         getLoggedUserData() {
-            const userData = this.$cookies.get('userData');
+            const userData = JSON.parse(localStorage.getItem('userData'));
             if (userData) {
                 this.user = userData;
             }
         },
         logout() {
-            this.$cookies.remove('userData');
-            this.$router.go();
+            localStorage.removeItem('userData');
+            this.$cookies.remove('.AspNetCore.Cookies');
+            this.$router.push({ name: 'login' });
         },
         goAccount() {
             this.$router.push({ name: 'profile.education' });

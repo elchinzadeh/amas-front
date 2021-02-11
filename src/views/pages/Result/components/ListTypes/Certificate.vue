@@ -22,9 +22,9 @@
             </div>
             <div class="vs-list--subtitle mb-2">
                 <a
-                    href="#"
                     v-for="(author, index) in data.authors"
                     :key="author.id"
+                    href="#"
                 >
                     {{
                         index + 1 !== data.authors.length
@@ -53,7 +53,7 @@
 
 <script>
 export default {
-    name: "Certificate",
+    name: 'Certificate',
     props: {
         data: {
             type: Object,

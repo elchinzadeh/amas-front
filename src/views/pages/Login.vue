@@ -28,43 +28,53 @@
                                     </h4>
                                 </div>
 
-                                <div>
+                                <ValidationObserver v-slot="{ invalid }">
                                     <!-- Username -->
-                                    <vs-input
-                                        v-model="email"
-                                        name="email"
-                                        icon-no-border
-                                        icon="icon icon-user"
-                                        icon-pack="feather"
-                                        label-placeholder="Email"
-                                        class="w-full"
-                                    />
+                                    <ValidationProvider
+                                        v-slot="{ errors }"
+                                        rules="required|email"
+                                        name="E-poçt"
+                                    >
+                                        <vs-input
+                                            v-model="email"
+                                            name="email"
+                                            icon-no-border
+                                            icon="icon icon-user"
+                                            icon-pack="feather"
+                                            label-placeholder="Email"
+                                            class="w-full"
+                                        />
+                                        <span
+                                            v-show="errors"
+                                            class="text-danger text-sm"
+                                        >
+                                            {{ errors[0] }}
+                                        </span>
+                                    </ValidationProvider>
 
                                     <!-- Password -->
-                                    <vs-input
-                                        v-model="password"
-                                        type="password"
-                                        name="password"
-                                        icon-no-border
-                                        icon="icon icon-lock"
-                                        icon-pack="feather"
-                                        label-placeholder="Password"
-                                        class="w-full mt-6"
-                                    />
-
-                                    <!-- Remember me / Forgot password -->
-                                    <!-- <div
-                                        class="flex flex-wrap justify-between my-5"
+                                    <ValidationProvider
+                                        v-slot="{ errors }"
+                                        rules="required"
+                                        name="Şifrə"
                                     >
-                                        <vs-checkbox
-                                            v-model="checkbox_remember_me"
-                                            class="mb-3"
-                                            >Remember Me</vs-checkbox
+                                        <vs-input
+                                            v-model="password"
+                                            type="password"
+                                            name="password"
+                                            icon-no-border
+                                            icon="icon icon-lock"
+                                            icon-pack="feather"
+                                            label-placeholder="Password"
+                                            class="w-full mt-6"
+                                        />
+                                        <span
+                                            v-show="errors"
+                                            class="text-danger text-sm"
                                         >
-                                        <router-link to=""
-                                            >Forgot Password?</router-link
-                                        >
-                                    </div> -->
+                                            {{ errors[0] }}
+                                        </span>
+                                    </ValidationProvider>
 
                                     <!-- Actions -->
                                     <div class="mt-5">
@@ -76,12 +86,13 @@
                                         </vs-button>
                                         <vs-button
                                             class="float-right"
-                                            @click="login"
+                                            :disabled="invalid"
+                                            @click.prevent="login"
                                         >
                                             Daxil ol
                                         </vs-button>
                                     </div>
-                                </div>
+                                </ValidationObserver>
                             </div>
                         </div>
                     </div>
@@ -105,29 +116,17 @@ export default {
     methods: {
         login() {
             API.Auth.signIn({
-                arasdirmaciEmeil: this.email,
-                arasdirmaciPassword: this.password
+                email: this.email,
+                password: this.password
             }).then(response => {
                 if (response.data) {
-                    this.getPersonalInformation().then(() => {
-                        this.$router.push({name: 'home'});
-                    });
+                    localStorage.setItem('userData', JSON.stringify(response.data));
+                    this.$store.dispatch('setUserData', response.data);
+                    this.$router.push({ name: 'home' });
                 } else {
                     this.email = '';
-                    this.password= '';
+                    this.password = '';
                 }
-            });
-        },
-        getPersonalInformation() {
-            return new Promise((resolve, reject) => {
-                API.PersonalInformation.get().then(response => {
-                    if (response.data) {
-                        this.$cookies.set('userData', JSON.stringify(response.data));
-                        resolve();
-                    } else {
-                        reject();
-                    }
-                });
             });
         }
     }

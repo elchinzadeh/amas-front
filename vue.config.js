@@ -8,7 +8,8 @@ module.exports = {
             splitChunks: {
                 chunks: 'all'
             }
-        }
+        },
+        disableHostCheck: true
     },
     chainWebpack(config) {
         config.plugins.delete('prefetch');

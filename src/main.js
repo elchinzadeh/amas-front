@@ -41,6 +41,22 @@ import 'prismjs/themes/prism-tomorrow.css';
 import VueCookies from 'vue-cookies';
 Vue.use(VueCookies);
 
+// Vee Validate
+import { ValidationObserver, ValidationProvider, extend } from 'vee-validate';
+import { required, email } from 'vee-validate/dist/rules';
+
+extend('email', {
+    ...email,
+    message: 'E-poçt düzgün formatda deyil'
+});
+extend('required', {
+    ...required,
+    message: 'Bu xananın doldurulması məcburidir'
+});
+
+Vue.component('ValidationObserver', ValidationObserver);
+Vue.component('ValidationProvider', ValidationProvider);
+
 // Feather font icon
 require('./assets/css/iconfont.css');
 
@@ -49,6 +65,11 @@ require('./assets/css/iconfont.css');
 import VSelect from 'vue-select';
 import 'vue-select/dist/vue-select.css';
 Vue.component('v-select', VSelect);
+
+// Datepicker
+import Datepicker from 'vuejs-datepicker';
+Vue.component('v-datepicker', Datepicker);
+
 
 Vue.config.productionTip = false;
 

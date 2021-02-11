@@ -1,22 +1,23 @@
 <template>
     <div class="w-full">
-        <!-- Academic -->
-        <Academic />
+        <!-- Pedagogical -->
+        <Pedagogical />
 
-        <!-- Leadership -->
-        <Leadership />
+        <!-- Management -->
+        <Management />
     </div>
 </template>
 
 <script>
-import Academic from './Academic';
-import Leadership from './Leadership';
+import Pedagogical from './Pedagogical/';
+import Management from './Management/';
+import './style.scss';
 
 export default {
     name: 'Experience',
     components: {
-        Academic,
-        Leadership
+        Pedagogical,
+        Management
     }
 };
 </script>

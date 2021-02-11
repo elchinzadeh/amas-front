@@ -1,11 +1,14 @@
-import _ from './service';
+import service from './service';
+
+function signIn(body) {
+    return service.post('/SignIn', body);
+}
+
+function signUp(body) {
+    return service.post('/SignUp', body);
+}
 
 export default {
-    signIn(body) {
-        return _.post('SignIn', body);
-    },
-    signUp(body) {
-        return _.post('SignUp', body);
-    }
+    signIn,
+    signUp
 };
-

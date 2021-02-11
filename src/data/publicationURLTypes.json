@@ -1,0 +1,17 @@
+[
+    {
+        "key": 1,
+        "title": "Scopus",
+        "image": "https://camo.githubusercontent.com/ec1c790ef8fcb75b37bccd96b0f51869dc2be534/68747470733a2f2f7777772e6665722e756e697a672e68722f5f7075622f7468656d65735f7374617469632f666572323031362f64656661756c742f696d672f73636f7075732d69636f6e2e706e67" 
+    },
+    {
+        "key": 2,
+        "title": "Web of Science",
+        "image": "https://icon2.cleanpng.com/20180624/sju/kisspng-thomson-reuters-corporation-business-avox-limited-scopus-5b30084ccc5da6.4344158815298745088371.jpg"
+    },
+    {
+        "key": 3,
+        "title": "Digər",
+        "image": null
+    }
+]
